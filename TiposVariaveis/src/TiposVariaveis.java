@@ -26,14 +26,14 @@ public class TiposVariaveis {
 		System.out.println("Sabe o Senhor " + letra + "? Então, sabia que ele é casado? " + resposta);
 		System.out.println(sal);
 		
-		try (Scanner ler = new Scanner(System.in)) {
-			System.out.print("Qual o seu nome? ");
-			String name = ler.nextLine();
-			System.out.print("E a sua idade? ");
-			int id = ler.nextInt();
-			System.out.println("Legal seu nome é " + name + " e sua idade é " + id);
-		}
-		
+		@SuppressWarnings("resource") //Aparentemente é melhor ignorar do que fechar o scanner https://pt.stackoverflow.com/questions/380095/erro-de-compila%c3%a7%c3%a3o-resource-leak-ao-usar-scanner
+		Scanner ler = new Scanner(System.in); 
+		System.out.print("Qual o seu nome? ");
+		String name = ler.nextLine();
+		System.out.print("E a sua idade? ");
+		int id = ler.nextInt();
+		System.out.println("Legal seu nome é " + name + " e sua idade é " + id);
+			
 	}
 
 }

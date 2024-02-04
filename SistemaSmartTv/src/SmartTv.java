@@ -27,9 +27,9 @@ public class SmartTv {
 	}
 	
 	public void escolherCanal () {
-		try (Scanner ler = new Scanner(System.in)) {
-			canal = ler.nextInt();
-		}
+		@SuppressWarnings("resource")
+		Scanner ler = new Scanner(System.in);
+		canal = ler.nextInt();
 		System.out.println("Canal alterado para: " + canal);
 	}	
 	
